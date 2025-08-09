@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Student</title></head>
+<body>
+  <h2>Edit Student</h2>
+  <form action="/edit/<%= student._id %>" method="POST">
+    RollNo: <input name="rollNo" value="<%= student.rollNo %>" />
+    Name: <input name="name" value="<%= student.name %>" />
+    Degree: <input name="degree" value="<%= student.degree %>" />
+    City: <input name="city" value="<%= student.city %>" />
+    <button type="submit">Update</button>
+  </form>
+</body>
+</html>

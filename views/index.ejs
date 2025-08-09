@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Student Registration Form</h1>
+    <form class="student-form" action="/add" method="POST">
+  <div class="form-group">
+    <label>Roll No:</label>
+    <input name="rollNo" required />
+  </div>
+  <div class="form-group">
+    <label>Name:</label>
+    <input name="name" required />
+  </div>
+  <div class="form-group">
+    <label>Degree:</label>
+    <input name="degree" required />
+  </div>
+  <div class="form-group">
+    <label>City:</label>
+    <input name="city" required />
+  </div>
+  <button type="submit">Save</button>
+</form>
+
+
+    <h2>Student Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>RollNo</th>
+          <th>Name</th>
+          <th>Degree</th>
+          <th>City</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% students.forEach(student => { %>
+          <tr>
+            <td><%= student.rollNo %></td>
+            <td><%= student.name %></td>
+            <td><%= student.degree %></td>
+            <td><%= student.city %></td>
+            <td>
+            <!-- Edit button -->
+  <a href="/edit/<%= student._id %>">
+    <button class="edit-btn" type="button">Edit</button>
+  </a>
+  <!-- Delete button -->
+  <form action="/delete/<%= student._id %>" method="POST" style="display:inline;">
+    <button class="delete-btn" type="submit">Delete</button>
+  </form>
+</td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
